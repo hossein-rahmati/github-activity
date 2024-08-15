@@ -1,0 +1,17 @@
+{
+  "name": "github-activity",
+  "version": "1.0.0",
+  "description": "A CLI to examine user's Github activity",
+  "main": "./bin/index.js",
+  "bin": {
+    "g-activity": "./bin/index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Hossein rahmati",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^12.1.0"
+  }
+}
