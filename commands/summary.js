@@ -2,6 +2,7 @@ const axios = require("axios");
 
 exports.showSummary = async (username) => {
   try {
+    console.log("getting user info...");
     const url = `https://api.github.com/users/${username}`;
     const { data } = await axios.get(url);
     displaySummary(data);

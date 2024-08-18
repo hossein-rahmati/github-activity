@@ -7,27 +7,39 @@
 // 4. terminal colors
 
 const yargs = require("yargs");
-const { showSummary } = require("../utils/summary");
+const { showSummary } = require("../commands/summary");
+const { events } = require("../commands/events");
 
-const usage = "\nUsage: gdetail <username> to see a summary of user";
-const options = yargs
-  .usage(usage)
-  .option("e", {
+const usage = "\nUsage: gdetail <options> <username>";
+const options = {
+  e: {
     alias: "events",
     describe: "show user's recent activities",
-    type: "boolean",
+    type: "array",
     demandOption: false,
-  })
-  .help(true).argv;
+  },
+  s: {
+    alias: "summary",
+    describe: "a summary of user's information",
+    type: "array",
+    demandOption: false,
+  },
+};
+
+yargs.usage(usage).options(options).help(true).argv;
 
 const args = yargs.argv;
 
-if (!args._.length)
-  return console.log(
-    "Please pass a username (ex: gdetail foo), or use gdetail --help"
-  );
+// if (!args._.length) {
+//   return console.log(
+//     "Please pass a username (ex: gdetail foo), or use gdetail --help"
+//   );
+// }
 
-if (!args.e || !args.events) {
-  console.log("getting user info...");
-  showSummary(args._);
+if (args.e) {
+  events(args.e);
+}
+
+if (args.s) {
+  showSummary(args.s);
 }
