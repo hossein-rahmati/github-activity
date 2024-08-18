@@ -1,7 +1,7 @@
 #! /usr/bin/env node
 
 // TODO:
-// 1. summary
+// 1. summary - done
 // 2. events
 // 3. error handling
 // 4. terminal colors
@@ -21,6 +21,11 @@ const options = yargs
   .help(true).argv;
 
 const args = yargs.argv;
+
+if (!args._.length)
+  return console.log(
+    "Please pass a username (ex: gdetail foo), or use gdetail --help"
+  );
 
 if (!args.e || !args.events) {
   console.log("getting user info...");
