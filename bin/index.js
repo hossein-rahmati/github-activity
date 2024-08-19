@@ -1,11 +1,5 @@
 #! /usr/bin/env node
 
-// TODO:
-// 1. summary - done
-// 2. events
-// 3. error handling
-// 4. terminal colors
-
 const yargs = require("yargs");
 const { showSummary } = require("../commands/summary");
 const { events } = require("../commands/events");
